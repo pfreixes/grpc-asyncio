@@ -238,6 +238,8 @@ cdef extern from "grpc/grpc.h":
         const grpc_channel_args *args,
         void *reserved) nogil
 
+    void grpc_channel_destroy(grpc_channel *channel) nogil
+
     grpc_connectivity_state grpc_channel_check_connectivity_state(
         grpc_channel *channel,
         int try_to_connect) nogil

@@ -41,7 +41,8 @@ dev_requires = [
     "pytest==4.2.0",
     "pytest-asyncio==0.10.0",
     "grpcio==1.19.0",
-    "grpcio-tools==1.19.0"
+    "grpcio-tools==1.19.0",
+    "uvloop==0.12.2"
 ]
 
 setup(

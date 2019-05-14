@@ -59,6 +59,9 @@ cdef class Channel:
         else:
             channel._waiter_call.set_result(None)
 
+    def close(self):
+        grpc_channel_destroy(self.g_channel)
+
     async def connect(self):
         cdef grpc_channel_args args
         cdef grpc_connectivity_state state

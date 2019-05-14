@@ -6,3 +6,4 @@ build
 *.cpp
 *.c
 *.pyc
+*.swo
