@@ -24,10 +24,10 @@ else
 	DYLD_LIBRARY_PATH=`pwd`/vendor/grpc/libs/opt pytest -sv tests/acceptance
 endif
 
-build-fixtures:
-	python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. tests/acceptance/fixtures/echo.proto
+build-proto:
+	python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. proto/echo.proto
 
 test: acceptance
 
 
-.PHONY: clean setup-build install install-dev compile acceptance test
+.PHONY: clean setup-build install install-dev compile acceptance test build-proto

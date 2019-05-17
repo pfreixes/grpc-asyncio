@@ -7,7 +7,7 @@ import uvloop
 from grpc_asyncio import grpc_init_asyncio
 from grpc_asyncio import create_channel
 
-from tests.acceptance.fixtures import echo_pb2
+from proto import echo_pb2
 
 @pytest.fixture()
 def asyncio_loop():

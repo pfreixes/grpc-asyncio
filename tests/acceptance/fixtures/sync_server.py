@@ -3,8 +3,8 @@ import grpc
 from time import sleep
 from concurrent import futures
 
-from tests.acceptance.fixtures import echo_pb2
-from tests.acceptance.fixtures import echo_pb2_grpc
+from proto import echo_pb2
+from proto import echo_pb2_grpc
 
 
 class EchoServer(echo_pb2_grpc.EchoServicer):
