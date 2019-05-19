@@ -4,6 +4,7 @@ from cpython cimport Py_INCREF, Py_DECREF
 from libc cimport string
 include "timespec.pyx"
 include "socket.pyx"
+include "unarycall.pyx"
 include "channel.pyx"
 include "timer.pyx"
 include "resolver.pyx"

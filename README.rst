@@ -26,11 +26,11 @@ file `guide <https://github.com/grpc/grpc/blob/master/BUILDING.md>`_ and follow 
 
     $ git clone --recursive git@github.com:pfreixes/grpc-asyncio.git
     $ cd grpc-asyncio/vendor/grpc
-    $ ./make
+    $ make
 
 For debugging purposes the library can be compiled in debug mode, as can be seen in the following command::
     
-    $ CONFIG=dbg ./make
+    $ CONFIG=dbg make
 
 The debug mode will allow you to get an extra set of messages when the gRPC library is executed with the traces enabled, also
 debugers will leverage on that by using the extra information emitted by the compiler.
