@@ -1,3 +1,5 @@
+import socket
+
 from libc cimport string
 
 cdef class Socket:
@@ -32,6 +34,11 @@ cdef class Socket:
             self.task_connect = None
 
         if not error:
+            # gRPC default posix implementation disables nagle
+            # algorithm.
+            sock = self.writer.transport.get_extra_info('socket')
+            sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, True)
+
             self.g_connect_cb(
                 <grpc_custom_socket*>self.g_socket,
                 <grpc_error*>0
