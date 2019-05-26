@@ -76,7 +76,7 @@ DYLD_LIBRARY_PATH=`pwd`/../vendor/grpc/libs/opt python async_unary.py --concurre
 DYLD_LIBRARY_PATH=`pwd`/../vendor/grpc/libs/opt python sync_unary.py --concurrency 128 --seconds 10
 ```
 
-We have also benchmarked the none native gRPC library for Asyncio [grpclib](https://github.com/vmagamedov/grpclib).
+We have also benchmarked the non native gRPC library for Asyncio [grpclib](https://github.com/vmagamedov/grpclib).
 The following table shows the benchmark for that specific library for the unary call from the perspective of the
 client side, using the same CPP server used in the previous benchmark.
 
