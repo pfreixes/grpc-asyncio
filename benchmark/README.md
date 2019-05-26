@@ -68,7 +68,6 @@ Command for running the server
 DYLD_LIBRARY_PATH=`pwd`/../vendor/grpc/libs/opt ./cpp_server/cpp_server
 ```
 
-
 Commands for running the different client benchmarks
 
 ```bash
@@ -76,3 +75,17 @@ DYLD_LIBRARY_PATH=`pwd`/../vendor/grpc/libs/opt python async_unary.py --uvloop -
 DYLD_LIBRARY_PATH=`pwd`/../vendor/grpc/libs/opt python async_unary.py --concurrency 128 --seconds 10
 DYLD_LIBRARY_PATH=`pwd`/../vendor/grpc/libs/opt python sync_unary.py --concurrency 128 --seconds 10
 ```
+
+We have also benchmarked the none native gRPC library for Asyncio [grpclib](https://github.com/vmagamedov/grpclib).
+The following table shows the benchmark for that specific library for the unary call from the perspective of the
+client side, using the same CPP server used in the previous benchmark.
+
+| Version          | Concurrency   | QPS           | latency avg  | Max CPU client | Max CPU server  |
+| ---------------- | -------------:| -------------:| ------------:| --------------:| ---------------:|
+| grpclib (uvloop) |             1 |          1608 |     0.000621 |            80% |              7% |
+| grpclib (uvloop) |             2 |          1974 |     0.001012 |           100% |             10% |
+| grpclib (uvloop) |             4 |          2137 |     0.001871 |           100% |             10% |
+| grpclib (uvloop) |             8 |          2266 |     0.003530 |           100% |             10% |
+
+As we can see the `grpclib` library performing is about 10x times worse than the native gRPC library
+for Asyncio.
